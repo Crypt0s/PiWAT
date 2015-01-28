@@ -1,1 +1,0 @@
-load msgrpc ServerHost=127.0.0.1 User=pi Pass=raspberry ServerType=Web
