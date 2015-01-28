@@ -85,6 +85,15 @@ echo "Installing pybootd"
 cd install/
 git clone https://github.com/eblot/pybootd.git
 python setup.py install
+cd ../
+
+echo "Installing MITMProxy"
+pip install mitmproxy
+
+echo "Installing FakeDNS"
+cd bin/
+git clone https://github.com/Crypt0s/FakeDns.git
+cd ../
 
 echo "========================================="
 echo "          FINISHED INSTALLATION          "
