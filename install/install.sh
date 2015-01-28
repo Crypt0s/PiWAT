@@ -78,6 +78,14 @@ cd beef/
 bundle install
 cd ../../
 
+echo "Installing netifaces module for python"
+pip install netifaces
+
+echo "Installing pybootd"
+cd install/
+git clone https://github.com/eblot/pybootd.git
+python setup.py install
+
 echo "========================================="
 echo "          FINISHED INSTALLATION          "
 echo "========================================="
