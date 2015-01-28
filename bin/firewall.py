@@ -1,6 +1,9 @@
 #!/usr/bin/python
 import iptc
 
+# Turn down for what?
+mitm_ssl = True
+
 #set internet and wlan interfaces so we can set up nat, proxy
 internetif = "eth0"
 lanif = "wlan0"
@@ -87,3 +90,19 @@ m.dport = '80'
 t = proxy_rule.create_target('DNAT')
 t.to_destination = dst_ip+':'+dst_port
 PREROUTE_Chain.insert_rule(proxy_rule)
+
+
+# MITM'd SSL is loud -- the user should confirm that they want to do this
+#iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 8080
+if mitm_ssl == True:
+    ssl_rule = iptc.Rule()
+    ssl_rule.protocol = "tcp"
+    m = ssl_rule.create_match('tcp')
+    m.dport = '443'
+    t = ssl_rule.create_target('DNAT')
+    t.to_destination = dst_ip+':'+dst_port
+    PREROUTE_Chain.insert_rule(proxy_rule)
+# we actually need to be able to set up arbitrary rules for forwarding non-443 SSL traffic to MITMProxy at some point
+# Additionally, we need the ability to create rules for non-HTTP SSL traffic to be MITM'd anyways
+# This script is far from complete
+
