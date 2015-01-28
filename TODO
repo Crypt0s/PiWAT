@@ -10,3 +10,7 @@ Test out on-the-fly APK re-writing in a variety of situations and determine if i
 Install BEEF from download -- is there a way to automatically find out the latest version and DL from sauce?
 
 Some of the install script will likely want to remain in bash and some will want to be moved to a python setup script if we can kick off multiple setup scripts from the same setupscript 
+
+Move to MITMProxy -- we don't want to reinvent all the nice stuff it has, and it is very, 
+very stable compared to other options.  Still have had issues with console char encoding, 
+though

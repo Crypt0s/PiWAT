@@ -3,3 +3,5 @@
 Keep track of new packages added to the build here
 
 python-iptables
+pybootd (for dhcp) https://github.com/eblot/pybootd.git
+netifaces - for pybootd
