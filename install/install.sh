@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Pentoo comes with libnl3, but we need 1 to compile the good version of hostapd
-emerge =dev-libs/libnl-1.1.4
+# need to find a way to just compile against the sauce of libnl1
+#emerge =dev-libs/libnl-1.1.4
 
 # get the hostapd versio
 wget http://hostap.epitest.fi/releases/hostapd-2.0.tar.gz
@@ -22,12 +23,6 @@ cp defconfig .config
 make hostapd
 mv hostapd ../../../bin/hostapd-karma
 cd ../../
-
-# May not need this in pentoo-land
-#echo "Uninstalling libnl1 and replacing with libnl3"
-
-# emerge some required software.
-emerge tmux dnsmasq
 
 echo "Downloading Pylibpcap"
 wget -O pylibpcap.tar.gz 'https://downloads.sourceforge.net/project/pylibpcap/pylibpcap/0.6.4/pylibpcap-0.6.4.tar.gz?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fpylibpcap%2Ffiles%2Fpylibpcap%2F&ts=1372734756&use_mirror=iweb'
@@ -73,10 +68,15 @@ mv airdrop-immunizer.py ../../bin/airdrop-immunizer.py
 cd ../
 mv airdrop2/ ../bin/
 
+echo "Installing BEEF"
+cd ../bin
+git clone https://github.com/beefproject/beef.git
+
 echo "Installing some BEEF deps"
 gem install bundler
-cd ../bin/beef/
+cd beef/
 bundle install
+cd ../../
 
 echo "========================================="
 echo "          FINISHED INSTALLATION          "
