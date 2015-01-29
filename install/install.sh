@@ -95,6 +95,14 @@ cd bin/
 git clone https://github.com/Crypt0s/FakeDns.git
 cd ../
 
+echo "Installing web.py"
+cd install/
+git clone https://github.com/webpy/webpy.git
+cd webpy/
+python setup.py install
+cd ../
+
+
 echo "========================================="
 echo "          FINISHED INSTALLATION          "
 echo "========================================="
