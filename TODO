@@ -3,14 +3,14 @@ TODO List:
 Convert all the things to python and include the python packages and any native libraries in with the code.
 The end-game should be to have as much of PiWAT written in python as possible, drawing in outside libraries only when we can't spend the effort to re-implement something or when it'd just be too damn slow in python.
 
-Make a Web Application Interface to simplify the user interface
+INPROG: Make a Web Application Interface to simplify the user interface
 
 Test out on-the-fly APK re-writing in a variety of situations and determine if it is useful.
 
-Install BEEF from download -- is there a way to automatically find out the latest version and DL from sauce?
+DONE: Install BEEF from download -- is there a way to automatically find out the latest version and DL from sauce?
 
 Some of the install script will likely want to remain in bash and some will want to be moved to a python setup script if we can kick off multiple setup scripts from the same setupscript 
 
-Move to MITMProxy -- we don't want to reinvent all the nice stuff it has, and it is very, 
-very stable compared to other options.  Still have had issues with console char encoding, 
-though
+DONE Move to MITMProxy -- we don't want to reinvent all the nice stuff it has, and it is very, 
+    very stable compared to other options.  Still have had issues with console char encoding, 
+    though
